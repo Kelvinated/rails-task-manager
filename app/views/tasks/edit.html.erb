@@ -1,0 +1,21 @@
+<h1>Edit Task</h1>
+<%= form_for(@task) do |f| %>
+  <%= f.label :title, "Enter title of task" %>
+  <%= f.text_field :title %>
+
+  <%= f.label :details, "Enter details of task" %>
+  <%= f.text_field :details %>
+
+  <br><br>
+
+  Status:
+  <%= f.select(:completed) do %>
+    <% [['Not done', false], ['Done!', true]].each do |c| -%>
+      <%= content_tag(:option, c.first, value: c.last) %>
+    <% end %>
+  <% end %>
+
+  <br><br>
+
+  <%= f.submit %>
+<% end %>
